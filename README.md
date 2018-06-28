@@ -1,37 +1,92 @@
-## Welcome to GitHub Pages
+# Selector
 
-You can use the [editor on GitHub](https://github.com/RunningCoderLee/selector/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+一款自我实现的简易 selector 插件
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![node](https://img.shields.io/badge/node-%3E%3D8.9.1-green.svg)
 
-### Markdown
+## 安装
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```shell
+$ npm i
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+或
 
-### Jekyll Themes
+```shell
+$ yarn add
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RunningCoderLee/selector/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## 开发
 
-### Support or Contact
+```shell
+$ npm start
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+或
+
+```shell
+$ yarn start
+```
+
+## 编译
+
+```shell
+$ npm run build
+```
+
+或
+
+```shell
+$ yarn build
+```
+
+## 测试
+
+```shell
+npm run test
+```
+
+或
+
+```shell
+yarn test
+```
+
+## 使用
+
+编译后的 `dist` 文件夹中包含所有的代码和样式，直接在 `html` 文件中引用后即可使用
+
+开发时运行命令后直接用浏览器打开根目录下的 `index.html`即可
+
+可接受原生 select 或 input 组件作为 `element`
+
+### 基本用法
+
+```javascript
+$('elementSelector').selector();
+```
+
+### 自定义数据源
+
+```javascript
+$('elementSelector').selector({
+  data: [{
+    value: 'apple',
+    title: 'Apple',
+    disables: true
+  }, {
+    value: 'pear',
+    title: 'Pear'
+  }]
+})
+```
+
+### 异步加载数据源
+
+```javascript
+let $selector = $('elementSelector').selector();
+
+$ajax.get('url').then((data) => {
+  $selector.setOriginalData(data)
+})
+```

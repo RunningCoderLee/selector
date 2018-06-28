@@ -73,8 +73,6 @@
   
   <script>
     $(function() {
-      console.log(window);
-
       $('#select1').selector();
 
       $('#input1').selector({
@@ -165,26 +163,6 @@
           title: 'Pear',
           value: 'pear',
         }]
-      })
-
-      const $input = $('#input').selector();
-
-      setTimeout(() => {
-        $input[0].setOriginalData([{
-          title: 'Apple',
-          value: 'apple'
-        }, {
-          title: 'Orange',
-          value: 'orange',
-          disabled: true
-        }, {
-          title: 'Banana',
-          value: 'banana',
-        }]);
-      }, 1000);
-
-      $('#query').click(function() {
-        console.log($('#app').val())
       })
     });
   </script>

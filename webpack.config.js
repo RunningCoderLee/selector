@@ -17,7 +17,7 @@ module.exports = {
   },
   devtool: "cheap-module-eval-source-map",
   entry: './src/selector.js',
-  mode: 'development',
+  mode: `${process.env.NODE_ENV}`,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'selector.min.js',
